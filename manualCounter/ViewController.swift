@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var timerLabel: UILabel!
     
+    // P
     @IBAction func play(_ sender: Any) {
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.decreaseTimer), userInfo: nil, repeats: true)
