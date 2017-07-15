@@ -1,26 +1,106 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="manualCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfJ-KB-KNu">
+                                <rect key="frame" x="0.0" y="172.5" width="320" height="44"/>
+                                <color key="barTintColor" red="0.14565619826316833" green="0.54978060722351074" blue="0.9941214919090271" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <navigationItem id="mDS-RA-qd9">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="pause" id="UUM-3L-vJc">
+                                            <color key="tintColor" red="0.99883338700840063" green="0.99908632040023804" blue="0.98829850124724916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="pause:" destination="BYZ-38-t0r" id="xiE-jb-uV5"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="2x3-xi-gZD">
+                                            <color key="tintColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="play:" destination="BYZ-38-t0r" id="yQa-Fn-Rla"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W44-93-QR8">
+                                <rect key="frame" x="0.0" y="313.5" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="- 10 s" id="hMx-ZL-PUE">
+                                        <color key="tintColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="minusTen:" destination="BYZ-38-t0r" id="Ek2-s3-8A6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BRT-V0-xfT"/>
+                                    <barButtonItem title="Reset Timer" id="XYR-97-5HX">
+                                        <color key="tintColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="resetTimer:" destination="BYZ-38-t0r" id="9wD-0f-ogi"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="vAy-rF-Thk"/>
+                                    <barButtonItem title="+ 10 s" id="anP-RG-Lsr">
+                                        <color key="tintColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="plusTen:" destination="BYZ-38-t0r" id="Ilz-86-bFg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.0" green="0.47934520244598389" blue="0.99908632040023804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phQ-1V-mOn">
+                                <rect key="frame" x="110.5" y="236.5" width="99" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="99.5" id="YLm-vE-Cp7"/>
+                                    <constraint firstAttribute="height" constant="59" id="moL-IP-nGB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <color key="textColor" red="0.26568612456321716" green="0.61109727621078491" blue="0.99304014444351196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="1" green="0.1548997364504141" blue="0.12855083909660459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hfJ-KB-KNu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-89.5" id="28V-zO-NbH"/>
+                            <constraint firstItem="phQ-1V-mOn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Yw-Xr-uEe"/>
+                            <constraint firstItem="hfJ-KB-KNu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="99W-nV-naW"/>
+                            <constraint firstItem="W44-93-QR8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FPk-EF-w28"/>
+                            <constraint firstItem="W44-93-QR8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ptc-nS-hja"/>
+                            <constraint firstItem="hfJ-KB-KNu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RGI-VS-pbK"/>
+                            <constraint firstItem="W44-93-QR8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="51.5" id="gpd-Tw-aSW"/>
+                            <constraint firstItem="phQ-1V-mOn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-18" id="ru1-EY-wGB"/>
+                            <constraint firstItem="hfJ-KB-KNu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u2l-HG-Wvj"/>
+                            <constraint firstAttribute="trailing" secondItem="W44-93-QR8" secondAttribute="trailing" id="voW-Li-G5t"/>
+                            <constraint firstAttribute="trailing" secondItem="hfJ-KB-KNu" secondAttribute="trailing" id="wqT-0d-Xig"/>
+                            <constraint firstAttribute="trailing" secondItem="hfJ-KB-KNu" secondAttribute="trailing" id="yl4-pO-lhj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="timerLabel" destination="phQ-1V-mOn" id="d7m-sC-he8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-78.260869565217391" y="136.95652173913044"/>
         </scene>
     </scenes>
 </document>
